@@ -24,12 +24,12 @@
   --accent: акцентний колір (CTA, мітки)
 ============================================================ */
 :root {
-  --bg:     #0a1119;
+  --bg:     #080b0f;
   --ink:    #0a1119;
   --accent: #ff6a1a;
 
   /* додаткові змінні сайту */
-  --bg2:#0d151e;--panel:#111c27;--text:#f4f6f7;--muted:#aab6c1;--line:rgba(255,255,255,.14);
+  --bg2:#080b0f;--panel:#10151b;--text:#f4f6f7;--muted:#aab6c1;--line:rgba(255,255,255,.14);
   --accent-ink:#101720;--max:1240px;
   --font:'Montserrat',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
 }
@@ -615,7 +615,7 @@ ul{padding:0;list-style:none}
   .dot{left:50%;top:calc(var(--p)*100%);margin:-7px 0 0 -6px}
   .step{padding:0 0 0 76px;min-height:52px}
   .node{display:none}
-  .ico{position:absolute;left:0;top:0;margin:0;z-index:2;background:#0d151e}
+  .ico{position:absolute;left:0;top:0;margin:0;z-index:2;background:var(--bg)}
   .step h3{margin:2px 0 6px}
 }
 
@@ -658,7 +658,6 @@ details p{margin-top:14px;color:var(--muted);max-width:640px}
 
 /* заявка */
 .contact{background:#0b131c;overflow:hidden;isolation:isolate}
-.contact-bg{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(6,12,18,.8) 0%,rgba(6,12,18,.4) 55%,rgba(6,12,18,.15) 100%),url('assets/images/form.webp') center/cover}
 .contact .wrap{position:relative;z-index:1}
 .contact-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(32px,6vw,90px);align-items:center}
 .contact .h2{margin:14px 0 20px}
@@ -680,7 +679,7 @@ details p{margin-top:14px;color:var(--muted);max-width:640px}
 .form-status.show{display:block}
 
 /* подвал */
-.footer{background:#070d14;border-top:1px solid var(--line);padding:40px 0 100px;color:#9aa7b2;font-size:13px}
+.footer{background:#06080b;border-top:1px solid var(--line);padding:40px 0 100px;color:#9aa7b2;font-size:13px}
 .footer a:hover{color:var(--accent)}
 .footer .brand{color:#e9edf0;font-size:16px}
 .footer-grid{display:grid;grid-template-columns:1.3fr 1.2fr .8fr .9fr;gap:40px;padding-bottom:36px;border-bottom:1px solid var(--line)}
@@ -757,11 +756,7 @@ body{color:var(--text)}
    (міняється лише вміст/оформлення всередині #section-2)
 ============================================================ */
 .s2-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;
-  background:
-    radial-gradient(60% 55% at 88% 6%,rgba(255,106,26,.22),transparent 62%),
-    radial-gradient(55% 55% at 4% 100%,rgba(70,125,195,.18),transparent 66%),
-    linear-gradient(180deg,rgba(10,17,25,.80),rgba(10,17,25,.93)),
-    url(assets/images/s2-bg.webp) center/cover}
+  background:radial-gradient(60% 55% at 88% 6%,rgba(255,106,26,.16),transparent 62%),var(--bg)}
 .s2-bg::after{content:"";position:absolute;inset:0;
   background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
   background-size:56px 56px;
@@ -915,7 +910,7 @@ body{color:var(--text)}
    ТАРИФИ: фото обладнання на підкладці карток (конструкція карток не змінена:
    той самий текст і кнопка, фото лягає знизу картки без накладання на текст)
 ============================================================ */
-.tariff{position:relative;overflow:hidden;isolation:isolate;padding-bottom:calc(74% + 12px);background:#0d1722}
+.tariff{position:relative;overflow:hidden;isolation:isolate;padding-bottom:calc(74% + 12px);background:#0d1116}
 .tariff::before{content:"";position:absolute;left:0;right:0;bottom:0;aspect-ratio:100/76;z-index:-2;
   background:var(--t-img) center 79%/cover no-repeat;
   -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 30%);mask-image:linear-gradient(to bottom,transparent 0,#000 30%);
@@ -930,7 +925,7 @@ body{color:var(--text)}
 .t-fortece{--t-img:url(assets/images/tarif-fortece.webp)}
 .tariff.glass{border:1px solid rgba(255,255,255,.16)}
 /* «Страж» — рекомендований: темна картка з оранжевим акцентом замість білої */
-.tariff.main{background:#0d1722;color:var(--text);border:1.5px solid rgba(255,106,26,.75);
+.tariff.main{background:#0d1116;color:var(--text);border:1.5px solid rgba(255,106,26,.75);
   box-shadow:0 0 0 1px rgba(255,106,26,.15),0 30px 80px rgba(255,106,26,.20),0 24px 60px rgba(0,0,0,.5)}
 .tariff.main .for,.tariff.main .price small{color:#c3ced8}
 .tariff.main::after{background:radial-gradient(90% 60% at 100% 100%,rgba(255,106,26,.24),transparent 70%)}
@@ -939,6 +934,63 @@ body{color:var(--text)}
 @media(max-width:760px){
   .tariff{padding-bottom:calc(62% + 8px)}
   .tariff::before{aspect-ratio:100/64}
+}
+
+/* ============================================================
+   ДОРОБКА (зауваження викладача): єдиний темний фон, кнопки, відгуки
+============================================================ */
+/* 1) Фони: суцільний майже чорний, одна світла секція для ритму, без фото на задніх планах */
+.services,.process,.tariffs,.faq,.contact,#about{background:transparent}
+#site{background:var(--bg)}
+#site>section+section{border-top:1px solid rgba(255,255,255,.06)}
+.contact{position:relative}
+.contact::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(55% 80% at 88% 55%,rgba(255,106,26,.12),transparent 70%)}
+.contact .glass,.contact .form{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.14)}
+.contact .field input,.contact .field select,.contact .field textarea{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.22)}
+.contact .field select option{background:#10151b;color:#f4f6f7}
+
+/* світла секція «Відгуки» */
+.reviews{background:#f1f3f5;color:#0a1119;border-top:0!important}
+.reviews+section{border-top:0!important}
+.reviews .h2{color:#0a1119}
+.reviews .review.glass{background:#fff;border:1px solid #e1e6ea;box-shadow:0 16px 40px rgba(10,17,25,.07);-webkit-backdrop-filter:none;backdrop-filter:none}
+.reviews blockquote{color:#0a1119}
+.reviews figcaption{color:#0a1119}
+.reviews figcaption span{color:#5d6b78}
+.reviews .ava{border-color:var(--accent);box-shadow:0 0 0 4px rgba(255,106,26,.14)}
+.stars{color:#ff9a2e;font-size:15px;letter-spacing:.16em;line-height:1}
+.review{gap:20px;justify-content:flex-start}
+.review blockquote{flex:1}
+.ava.ini{display:grid;place-items:center;font-weight:800;font-size:22px;color:#fff;background:linear-gradient(145deg,#ff8a45,#ff6a1a);border-color:#fff}
+
+/* 2) Головний екран: біла кнопка */
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.btn.light{background:#fff;color:#0a1119;border-color:#fff;box-shadow:0 14px 36px rgba(0,0,0,.35)}
+.btn.light:hover{background:#eef1f4}
+.btn svg{width:18px;height:18px;flex:none;transition:transform .25s}
+.btn:hover svg{transform:translateX(4px)}
+
+/* 3) Послуги: кнопка зі стрілкою, уся картка клікабельна */
+.service{position:relative;cursor:pointer}
+.service .more{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:14px;padding:6px 6px 6px 22px;border:1px solid rgba(255,106,26,.55);border-radius:999px;background:rgba(255,106,26,.08);color:#fff;font-size:14px;font-weight:700;transition:background .25s,color .25s,border-color .25s}
+.service .more::after{content:"";position:absolute;inset:0;border-radius:28px;z-index:2}
+.service .more svg{width:36px;height:36px;padding:9px;border-radius:50%;background:var(--accent);color:#0a1119;transition:transform .3s,background .25s,color .25s}
+.service:hover .more{background:var(--accent);border-color:var(--accent);color:#0a1119}
+.service:hover .more svg{background:#0a1119;color:var(--accent);transform:translateX(3px)}
+.service:active{transform:translateY(-2px) scale(.994)}
+.service .more:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.field.flash select{animation:fieldFlash 1.6s ease-out 1}
+@keyframes fieldFlash{0%,100%{box-shadow:0 0 0 0 rgba(255,106,26,0)}20%,60%{box-shadow:0 0 0 4px rgba(255,106,26,.65);border-color:var(--accent)}}
+
+/* 4) Відгуки: на телефоні — горизонтальна стрічка */
+@media(max-width:760px){
+  .hero-sub{margin-bottom:0}
+  .hero-actions{margin-top:24px}.hero-actions .btn{width:100%}
+  .review-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:14px;margin:0 -20px;padding:4px 20px 18px;scrollbar-width:none}
+  .review-grid::-webkit-scrollbar{display:none}
+  .review{flex:0 0 86%;scroll-snap-align:center}
+  .js-mbar .mbar{transform:translateY(120%);transition:transform .35s ease}
+  .js-mbar .mbar.on{transform:none}
 }
 </style>
 </head>
@@ -987,6 +1039,7 @@ body{color:var(--text)}
         <em>Стражнік на посту</em>
       </h1>
       <p class="hero-sub">Охорона, яка приїжджає швидко й звітує за кожен виїзд</p>
+      <div class="hero-actions"><a class="btn light" href="#contact">Замовити охорону<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
 
     <!-- scroll індикатор — можна прибрати -->
@@ -1082,17 +1135,15 @@ body{color:var(--text)}
 <main id="site">
 <!-- ПОСЛУГИ -->
 <section class="services" id="services">
-  <div class="blob" style="left:-140px;top:10%;width:460px;height:460px;background:rgba(255,106,26,.16)"></div>
-  <div class="blob" style="right:-160px;bottom:5%;width:520px;height:520px;background:rgba(60,110,190,.18)"></div>
   <div class="wrap">
     <div class="section-head"><div><h2 class="h2">Наші послуги</h2></div></div>
     <div class="cards">
-      <article class="service"><div class="service-img"><img src="assets/images/camera.webp" alt="Камера відеоспостереження на фасаді будівлі" loading="lazy" style="object-position:58% 50%"></div><div class="service-body"><h3 class="h3">Відеоспостереження</h3><p>Камери, запис і перегляд із телефона</p><a class="more" href="#contact">Замовити</a></div></article>
-      <article class="service"><div class="service-img"><img src="assets/images/pult.webp" alt="Оператори пульта біля стіни моніторів" loading="lazy" style="object-position:50% 55%"></div><div class="service-body"><h3 class="h3">Пультова охорона</h3><p>Сигналізація на нашому пульті 24/7, при тривозі виїжджає група</p><a class="more" href="#contact">Замовити</a></div></article>
-      <article class="service"><div class="service-img"><img src="assets/images/ohrana.webp" alt="Співробітник охорони на території приватного будинку" loading="lazy" style="object-position:40% 40%"></div><div class="service-body"><h3 class="h3">Фізична охорона</h3><p>Пости й патрулі для будинків, офісів і селищ</p><a class="more" href="#contact">Замовити</a></div></article>
-      <article class="service"><div class="service-img"><img src="assets/images/knopka.webp" alt="Рука натискає тривожну кнопку на стіні будинку" loading="lazy" style="object-position:62% 45%"></div><div class="service-body"><h3 class="h3">Тривожна кнопка</h3><p>Одне натискання, і група вже в дорозі</p><a class="more" href="#contact">Замовити</a></div></article>
-      <article class="service"><div class="service-img"><img src="assets/images/pozharka.webp" alt="Датчик диму на стелі затишної вітальні" loading="lazy" style="object-position:55% 28%"></div><div class="service-body"><h3 class="h3">Пожежна сигналізація</h3><p>Датчики диму й тепла, підключені до пульта 24/7</p><a class="more" href="#contact">Замовити</a></div></article>
-      <article class="service"><div class="service-img"><img src="assets/images/montazh.webp" alt="Монтажник встановлює камеру на фасаді будинку" loading="lazy" style="object-position:62% 30%"></div><div class="service-body"><h3 class="h3">Проєктування й монтаж</h3><p>Підберемо, змонтуємо й обслуговуватимемо систему</p><a class="more" href="#contact">Замовити</a></div></article>
+      <article class="service"><div class="service-img"><img src="assets/images/camera.webp" alt="Камера відеоспостереження на фасаді будівлі" loading="lazy" style="object-position:58% 50%"></div><div class="service-body"><h3 class="h3">Відеоспостереження</h3><p>Камери, запис і перегляд із телефона</p><a class="more" href="#contact" data-service="Відеоспостереження" aria-label="Замовити: Відеоспостереження"><span>Замовити</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
+      <article class="service"><div class="service-img"><img src="assets/images/pult.webp" alt="Оператори пульта біля стіни моніторів" loading="lazy" style="object-position:50% 55%"></div><div class="service-body"><h3 class="h3">Пультова охорона</h3><p>Сигналізація на нашому пульті 24/7, при тривозі виїжджає група</p><a class="more" href="#contact" data-service="Пультова охорона" aria-label="Замовити: Пультова охорона"><span>Замовити</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
+      <article class="service"><div class="service-img"><img src="assets/images/ohrana.webp" alt="Співробітник охорони на території приватного будинку" loading="lazy" style="object-position:40% 40%"></div><div class="service-body"><h3 class="h3">Фізична охорона</h3><p>Пости й патрулі для будинків, офісів і селищ</p><a class="more" href="#contact" data-service="Фізична охорона" aria-label="Замовити: Фізична охорона"><span>Замовити</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
+      <article class="service"><div class="service-img"><img src="assets/images/knopka.webp" alt="Рука натискає тривожну кнопку на стіні будинку" loading="lazy" style="object-position:62% 45%"></div><div class="service-body"><h3 class="h3">Тривожна кнопка</h3><p>Одне натискання, і група вже в дорозі</p><a class="more" href="#contact" data-service="Тривожна кнопка" aria-label="Замовити: Тривожна кнопка"><span>Замовити</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
+      <article class="service"><div class="service-img"><img src="assets/images/pozharka.webp" alt="Датчик диму на стелі затишної вітальні" loading="lazy" style="object-position:55% 28%"></div><div class="service-body"><h3 class="h3">Пожежна сигналізація</h3><p>Датчики диму й тепла, підключені до пульта 24/7</p><a class="more" href="#contact" data-service="Пожежна сигналізація" aria-label="Замовити: Пожежна сигналізація"><span>Замовити</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
+      <article class="service"><div class="service-img"><img src="assets/images/montazh.webp" alt="Монтажник встановлює камеру на фасаді будинку" loading="lazy" style="object-position:62% 30%"></div><div class="service-body"><h3 class="h3">Проєктування й монтаж</h3><p>Підберемо, змонтуємо й обслуговуватимемо систему</p><a class="more" href="#contact" data-service="Проєктування й монтаж" aria-label="Замовити: Проєктування й монтаж"><span>Замовити</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
     </div>
   </div>
 </section>
@@ -1112,8 +1163,6 @@ body{color:var(--text)}
 
 <!-- ТАРИФИ -->
 <section class="tariffs" id="tariffs">
-  <div class="blob" style="right:5%;top:15%;width:480px;height:480px;background:rgba(255,106,26,.18)"></div>
-  <div class="blob" style="left:-120px;bottom:0;width:480px;height:480px;background:rgba(60,110,190,.2)"></div>
   <div class="wrap">
     <div class="section-head"><div><h2 class="h2">Три тарифи, у яких усе зрозуміло</h2></div></div>
     <div class="tariff-grid">
@@ -1126,20 +1175,18 @@ body{color:var(--text)}
 
 <!-- ВІДГУКИ -->
 <section class="reviews">
-  <div class="blob" style="left:8%;top:10%;width:420px;height:420px;background:rgba(255,106,26,.15)"></div>
-  <div class="blob" style="right:0;bottom:0;width:420px;height:420px;background:rgba(60,110,190,.18)"></div>
   <div class="wrap">
     <div class="section-head"><div><h2 class="h2">Що кажуть клієнти</h2></div></div>
     <div class="review-grid">
-      <figure class="review glass"><blockquote>«Їздили на місяць. Щотижня приходило фото будинку й звіт, що все гаразд. Вперше не нервувала.»</blockquote><figcaption><img class="ava" src="assets/images/marina.webp" alt="Марина" width="56" height="56" loading="lazy"><div>Марина<span>будинок у селищі</span></div></figcaption></figure>
-      <figure class="review glass"><blockquote>«Уночі спрацювала сигналізація, за шість хвилин група була біля хвіртки. Виявилося, кішка. Але я все бачив у застосунку.»</blockquote><figcaption><img class="ava" src="assets/images/andrii.webp" alt="Андрій" width="56" height="56" loading="lazy"><div>Андрій<span>котедж</span></div></figcaption></figure>
-      <figure class="review glass"><blockquote>«Працюємо з ними третій рік на трьох складах. Звіти надходять вчасно, страхова приймає нас без питань.»</blockquote><figcaption><img class="ava" src="assets/images/igor.webp" alt="Ігор" width="56" height="56" loading="lazy"><div>Ігор<span>директор з логістики</span></div></figcaption></figure>
+      <figure class="review glass"><div class="stars" role="img" aria-label="Оцінка 5 з 5">★★★★★</div><blockquote>«Їздили на місяць. Щотижня приходило фото будинку й звіт, що все гаразд. Вперше не нервувала.»</blockquote><figcaption><img class="ava" src="assets/images/marina.webp" alt="Марина" width="56" height="56" loading="lazy"><div>Марина<span>будинок у селищі</span></div></figcaption></figure>
+      <figure class="review glass"><div class="stars" role="img" aria-label="Оцінка 5 з 5">★★★★★</div><blockquote>«Уночі спрацювала сигналізація, за шість хвилин група була біля хвіртки. Виявилося, кішка. Але я все бачив у застосунку.»</blockquote><figcaption><img class="ava" src="assets/images/andrii.webp" alt="Андрій" width="56" height="56" loading="lazy"><div>Андрій<span>котедж</span></div></figcaption></figure>
+      <figure class="review glass"><div class="stars" role="img" aria-label="Оцінка 5 з 5">★★★★★</div><blockquote>«Працюємо з ними третій рік на трьох складах. Звіти надходять вчасно, страхова приймає нас без питань.»</blockquote><figcaption><img class="ava" src="assets/images/igor.webp" alt="Ігор" width="56" height="56" loading="lazy"><div>Ігор<span>директор з логістики</span></div></figcaption></figure><figure class="review glass"><div class="stars" role="img" aria-label="Оцінка 5 з 5">★★★★★</div><blockquote>«Охороняємо кав’ярню: камери в залі й тривожна кнопка біля каси. Монтаж зробили за один день, і ввечері працювати стало спокійніше.»</blockquote><figcaption><img class="ava" src="assets/images/olena.webp" alt="Олена" width="56" height="56" loading="lazy"><div>Олена<span>кав’ярня в центрі</span></div></figcaption></figure><figure class="review glass"><div class="stars" role="img" aria-label="Оцінка 5 з 5">★★★★★</div><blockquote>«Раніше вночі хтось лазив на територію СТО. Відколи стоять камери й працює виїзд групи, тихо. Записи можна подивитися з телефона.»</blockquote><figcaption><img class="ava" src="assets/images/vitaliy.webp" alt="Віталій" width="56" height="56" loading="lazy"><div>Віталій<span>автосервіс</span></div></figcaption></figure><figure class="review glass"><div class="stars" role="img" aria-label="Оцінка 5 з 5">★★★★★</div><blockquote>«Їхали у відпустку на два тижні й залишили квартиру під пультом. У застосунку все було видно, а ціна не змінилася проти названої на початку.»</blockquote><figcaption><img class="ava" src="assets/images/natali.webp" alt="Наталія" width="56" height="56" loading="lazy"><div>Наталія<span>квартира</span></div></figcaption></figure>
     </div>
   </div>
 </section>
 
 <!-- ПРО КОМПАНІЮ -->
-<section id="about" style="background:var(--panel)"><div class="wrap about">
+<section id="about"><div class="wrap about">
   <div class="about-photo"><img src="assets/images/ingener.webp" alt="Інженер із планшетом біля будинку під охороною" loading="lazy" style="object-position:center 25%"><div class="photo-tag glass-dark">Захист майна починається з правильного рішення</div></div>
   <div class="about-copy"><h2 class="h2">Спокій — це коли все під контролем</h2>
     <p>Працюємо з 2004 року. Вивчаємо об’єкт, знаходимо вразливі місця й пропонуємо зрозумілу систему захисту без зайвих витрат</p>
@@ -1162,9 +1209,7 @@ body{color:var(--text)}
 
 <!-- ЗАЯВКА -->
 <section class="contact" id="contact">
-  <div class="contact-bg" aria-hidden="true"></div>
-  <div class="blob" style="left:-120px;top:5%;width:480px;height:480px;background:rgba(255,106,26,.2)"></div>
-  <div class="blob" style="right:-140px;bottom:0;width:520px;height:520px;background:rgba(60,110,190,.22)"></div><div class="wrap contact-grid">
+  <div class="contact-bg" aria-hidden="true"></div><div class="wrap contact-grid">
   <div class="contact-copy"><h2 class="h2">Залиште заявку на охорону</h2><p class="lead">Передзвонимо протягом 15 хвилин і підберемо захист</p>
   </div>
   <form class="form glass" id="leadForm" novalidate>
@@ -1172,7 +1217,7 @@ body{color:var(--text)}
       <div class="field"><label for="name">Ваше ім’я</label><input id="name" name="name" autocomplete="name" placeholder="Як до вас звертатися" required></div>
       <div class="field"><label for="phoneInput">Телефон</label><input id="phoneInput" name="phone" type="tel" autocomplete="tel" placeholder="+38 (0__) ___-__-__" required></div>
     </div>
-    <div class="field"><label for="object">Що потрібно охороняти</label><select id="object" name="object"><option>Квартира</option><option>Будинок або котедж</option><option>Офіс або магазин</option><option>Склад або виробництво</option><option>КП, ЖК, ОСББ</option><option>Інше</option></select></div>
+    <div class="form-row"><div class="field"><label for="object">Що потрібно охороняти</label><select id="object" name="object"><option>Квартира</option><option>Будинок або котедж</option><option>Офіс або магазин</option><option>Склад або виробництво</option><option>КП, ЖК, ОСББ</option><option>Інше</option></select></div><div class="field"><label for="service">Що цікавить</label><select id="service" name="service"><option>Потрібна консультація</option><option>Відеоспостереження</option><option>Пультова охорона</option><option>Фізична охорона</option><option>Тривожна кнопка</option><option>Пожежна сигналізація</option><option>Проєктування й монтаж</option></select></div></div>
     <div class="field"><label for="addr">Район або адреса (необов’язково)</label><input id="addr" name="addr" placeholder="Район або адреса"></div>
     <div class="field"><label for="message">Коментар (необов’язково)</label><textarea id="message" name="message" placeholder="Коротко опишіть завдання"></textarea></div>
     <button class="btn" type="submit">Залишити заявку на охорону</button>
@@ -1509,6 +1554,25 @@ body{color:var(--text)}
     if(r>=0.6&&!inner.classList.contains('in')){inner.classList.add('in');run()}
     else if(r<=0.02&&inner.classList.contains('in')){inner.classList.remove('in');zero()}   /* повертаємось нагору — наступного разу знову заграє */
   },{threshold:[0,0.02,0.6]}).observe(s2);
+})();
+</script>
+<script>
+/* Доробка: підстановка послуги у форму, підсвічування поля, нижня панель на мобільному з'являється після першого екрана.
+   Окремий блок, engine не змінено. */
+(function(){
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[data-service]'); if(!a)return;
+    var sel=document.getElementById('service'); if(!sel)return;
+    var v=a.getAttribute('data-service');
+    for(var i=0;i<sel.options.length;i++){ if(sel.options[i].text===v){sel.selectedIndex=i;break} }
+    var f=sel.closest('.field'); if(f){f.classList.remove('flash'); void f.offsetWidth; setTimeout(function(){f.classList.add('flash')},500); setTimeout(function(){f.classList.remove('flash')},2400)}
+  });
+  var bar=document.querySelector('.mbar');
+  if(bar){
+    document.documentElement.classList.add('js-mbar');
+    var upd=function(){bar.classList.toggle('on',window.scrollY>innerHeight*.6)};
+    addEventListener('scroll',upd,{passive:true}); upd();
+  }
 })();
 </script>
 </body>
